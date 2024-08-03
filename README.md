@@ -52,10 +52,8 @@ You can install the required libraries using pip:
 
 ```bash
 pip install numpy pandas scikit-learn joblib
-Usage
-Clone this repository:
 ```
-##Usage
+## Usage
 1.Clone this repository:
 
 ```bash
@@ -74,11 +72,11 @@ cd genetic-algorithm-feature-selection
 python genetic_algorithm_feature_selection.py
 
 ```
-#Project Structure
+# Project Structure
 
 genetic_algorithm_feature_selection.py: Main script containing the implementation of the genetic algorithm and the Random Forest classifier.
 
-#Functions Explained
+# Functions Explained
 calculate_fitness_v2
 Calculates the fitness of an individual in the population. Fitness is measured as the accuracy of the Random Forest classifier using the selected features.
 
