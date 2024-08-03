@@ -76,7 +76,7 @@ python genetic_algorithm_feature_selection.py
 genetic_algorithm_feature_selection.py: Main script containing the implementation of the genetic algorithm and the Random Forest classifier.
 
 ## Functions Explained
-calculate_fitness_v2
+<b>calculate_fitness_v2</b> <br>
 Calculates the fitness of an individual in the population. Fitness is measured as the accuracy of the Random Forest classifier using the selected features.
 
 
@@ -98,7 +98,7 @@ def calculate_fitness_v2(individual, X_train, X_test, y_train, y_test):
 
 ```
 
-<b>parallel_fitness</b>
+<b>parallel_fitness</b> <br>
 Evaluates the fitness of the entire population in parallel to speed up the process.
 
 ```python
@@ -106,7 +106,7 @@ def parallel_fitness(population, X_train, X_test, y_train, y_test):
     fitness_values = Parallel(n_jobs=-1)(delayed(calculate_fitness_v2)(individual, X_train, X_test, y_train, y_test) for individual in population)
     return np.array(fitness_values)
 ```
-genetic_algorithm_optimized
+<b>genetic_algorithm_optimized</b> <br>
 Main function to run the genetic algorithm. It iterates through the specified number of runs, performing selection, crossover, and mutation to evolve the population.
 
 ```python
@@ -138,7 +138,7 @@ def genetic_algorithm_optimized(X_train, X_test, y_train, y_test, population_siz
 
         print(f"Run {n_run}: Best individual: {best_individual}, Accuracy: {best_accuracy}")
 ```
-tournament_selection
+<b>tournament_selection</b> <br>
 Selects parents for the next generation using tournament selection.
 
 ```python
@@ -154,7 +154,7 @@ def tournament_selection(population, fitness_values, tournament_size):
 
     return np.array(parents)
 ```
-crossover
+<b>crossover</b> <br>
 Performs crossover between pairs of parents to produce children.
 
 ```python
@@ -178,7 +178,7 @@ def crossover(parents, crossover_probability):
 
     return np.array(children)
 ```
-mutation
+<b>mutation</b> <br>
 Mutates the children based on the mutation probability.
 
 ```python
@@ -190,7 +190,7 @@ def mutation(children, mutation_probability):
 
     return children
 ```
-fitness_based_selection
+<b>fitness_based_selection</b> <br>
 Selects the best individuals from the combined population of parents and children based on their fitness values.
 
 ```python
@@ -200,12 +200,22 @@ def fitness_based_selection(population, fitness_values, new_population_size):
     return best_individuals_index
 ```
 ## Results
-The output of the script provides the best individual (feature subset) and the corresponding accuracy for different numbers of runs:
+The output of the script provides the best individual (feature subset) and the corresponding accuracy for different numbers of runs: <br>
 
-Run 100: Best individual: [1 1 1 0 0 1 1 1], Accuracy: 0.7792207792207793
-Run 500: Best individual: [1 1 1 0 1 1 1 1], Accuracy: 0.7792207792207793
-Run 1000: Best individual: [1 1 1 0 1 1 1 1], Accuracy: 0.7792207792207793
-Run 2000: Best individual: [1 1 1 0 0 1 1 1], Accuracy: 0.7792207792207793
+Run 100: Best individual: [1 1 1 0 0 1 1 1], Accuracy: 0.7792207792207793 <br>
+Run 500: Best individual: [1 1 1 0 1 1 1 1], Accuracy: 0.7792207792207793 <br>
+Run 1000: Best individual: [1 1 1 0 1 1 1 1], Accuracy: 0.7792207792207793 <br>
+Run 2000: Best individual: [1 1 1 0 0 1 1 1], Accuracy: 0.7792207792207793 <br>
+
+Due to "Run 2000" 
+- Pregnancies
+- Glucose
+- BloodPressure
+- BMI
+- DiabetesPedigreeFunction
+- Age>
+  <br>
+These features are selected by genetic algorithm.
 
 ## Contributing
 Contributions are welcome! Please feel free to submit a Pull Request or open an Issue.
