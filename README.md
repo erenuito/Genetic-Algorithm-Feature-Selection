@@ -213,7 +213,7 @@ Due to "Run 2000"
 - BloodPressure
 - BMI
 - DiabetesPedigreeFunction
-- Age>
+- Age
   <br>
 These features are selected by genetic algorithm.
 
