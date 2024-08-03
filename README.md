@@ -54,26 +54,37 @@ You can install the required libraries using pip:
 pip install numpy pandas scikit-learn joblib
 Usage
 Clone this repository:
+```
+##Usage
+1.Clone this repository:
 
-bash
-Kodu kopyala
+```bash
+
 git clone https://github.com/yourusername/genetic-algorithm-feature-selection.git
 cd genetic-algorithm-feature-selection
-Ensure you have the diabetes.csv file in the same directory as the script.
 
-Run the script:
+```
+2.Ensure you have the diabetes.csv file in the same directory as the script.
 
-bash
-Kodu kopyala
+
+3.Run the script:
+
+```bash
+
 python genetic_algorithm_feature_selection.py
-Project Structure
+
+```
+#Project Structure
+
 genetic_algorithm_feature_selection.py: Main script containing the implementation of the genetic algorithm and the Random Forest classifier.
-Functions Explained
+
+#Functions Explained
 calculate_fitness_v2
 Calculates the fitness of an individual in the population. Fitness is measured as the accuracy of the Random Forest classifier using the selected features.
 
-python
-Kodu kopyala
+
+```python
+
 def calculate_fitness_v2(individual, X_train, X_test, y_train, y_test):
     X_train_selected = X_train.iloc[:, individual == 1]
     X_test_selected = X_test.iloc[:, individual == 1]
@@ -85,6 +96,8 @@ def calculate_fitness_v2(individual, X_train, X_test, y_train, y_test):
     y_pred = model.predict(X_test_selected)
 
     accuracy = accuracy_score(y_test, y_pred)
+
+```
     return accuracy
 parallel_fitness
 Evaluates the fitness of the entire population in parallel to speed up the process.
